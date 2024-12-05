@@ -1,6 +1,8 @@
 import style from './App.module.scss';
 import Search from 'pages/main/Search';
 import CardsList from 'pages/main/CardsList';
+import Signin from '../pages/authorization/Signin';
+import Signup from '../pages/authorization/Signup';
 
 function App() {
 	return (
