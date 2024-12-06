@@ -1,6 +1,6 @@
 import { TextField } from '@mui/material';
 
-function Search() {
+function Search(props) {
 	return (
 		<TextField
 			sx={{
@@ -38,6 +38,7 @@ function Search() {
 			label="поиск"
 			variant="outlined"
 			fullWidth
+			{...props}
 		/>
 	);
 }

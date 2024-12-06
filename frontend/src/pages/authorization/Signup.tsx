@@ -20,8 +20,8 @@ const providers = [{ id: 'credentials', name: 'Email and Password' }];
 // };
 
 export default function Signup() {
-	const users = useSelector((state: RootState) => state.users)
-	console.log(users)
+	const users = useSelector((state: RootState) => state.users);
+	console.log(users);
 	return (
 		<AppProvider>
 			<SignInPage /*signIn={signIn}*/ providers={providers}></SignInPage>
