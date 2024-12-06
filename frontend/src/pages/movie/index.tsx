@@ -1,4 +1,3 @@
-import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import { searchMoviesById } from '@shared/api/server/server';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
@@ -11,10 +10,24 @@ function Movie() {
 		Year: '',
 		Released: '',
 		Actors: '',
-		Poster: ''
+		Poster: '',
+		Awards: '',
+		Metascore: '',
+		Plot: '',
+		imdbRating: ''
 	});
 
-	const { Title, Year, Released, Actors, Poster } = description;
+	const {
+		Title,
+		Year,
+		Released,
+		Actors,
+		Poster,
+		Awards,
+		Metascore,
+		Plot,
+		imdbRating
+	} = description;
 
 	useEffect(() => {
 		searchMoviesById(`${id}`).then((response) => {
@@ -23,26 +36,30 @@ function Movie() {
 		});
 	}, []);
 	return (
-		<Card
-			sx={{
-				minHeight: '500px'
-				//backgroundColor: '#c9e9ff'
-			}}
-		>
-			<CardContent>
-				<Typography variant="h6" component="h3">
-					{Title} {Year}
-				</Typography>
-				<Typography variant="h6" component="h3"></Typography>
-				<Typography variant="h6" component="h3">
-					Released: {Released}
-				</Typography>
-				<Typography variant="h6" component="h3">
-					Actors: {Actors}
-				</Typography>
-				<img className={styles.moviePoster} src={Poster} />
-			</CardContent>
-		</Card>
+		<div className={styles.wrapper}>
+			<div className={styles.title}>
+				{Title} {Year}
+			</div>
+			<img className={styles.moviePoster} src={Poster} />
+			<div>
+				<strong>Released:</strong> {Released}
+			</div>
+			<div>
+				<strong>Actors:</strong> {Actors}
+			</div>
+			<div>
+				<strong>Awards: </strong> {Awards}
+			</div>
+			<div>
+				<strong>Metascore: :</strong> {Metascore}
+			</div>
+			<div>
+				<strong>Plot:</strong> {Plot}
+			</div>
+			<div>
+				<strong>imdbRating:</strong> {imdbRating}
+			</div>
+		</div>
 	);
 }
 

@@ -5,6 +5,7 @@ import Signin from '@pages/authorization/Signin';
 import Signup from '@pages/authorization/Signup';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Movie from '@pages/movie';
+import AppBar from '@pages/movieList/components/AppBar';
 
 function App() {
 	return (
