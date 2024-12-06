@@ -26,7 +26,7 @@ const MovieItem: FC<TMovieItem> = ({ Poster, Title, imdbID }) => {
 		<Grid item xs={13} md={1.7} spacing={{ md: 3 }}>
 			<Card
 				sx={{
-					height: '400px',
+					height: '450px',
 					backgroundColor: '#c9e9ff'
 				}}
 			>
@@ -45,7 +45,14 @@ const MovieItem: FC<TMovieItem> = ({ Poster, Title, imdbID }) => {
 							}}
 							image={Poster}
 						></CardMedia>
-						<Typography variant="h6" component="h3">
+						<Typography
+							sx={{
+								marginTop: '8px'
+							}}
+							align="center"
+							variant="h6"
+							component="h3"
+						>
 							{Title}
 						</Typography>
 					</div>

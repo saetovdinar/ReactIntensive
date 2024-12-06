@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { searchMoviesByTitle } from '@shared/api/server/server';
 import Film from '@pages/movie';
 import Search from './components/Search';
+import styles from './styles.module.scss';
+import AppBar from './components/AppBar';
 
 const DEFAULT_SEARCH = 'terminator';
 
@@ -19,7 +21,8 @@ function CardsList() {
 	}, [search]);
 
 	return (
-		<>
+		<div>
+			<AppBar></AppBar>
 			<Search value={search} onChange={(e) => setSearch(e.target.value)} />
 			<Grid
 				sx={{
@@ -29,7 +32,7 @@ function CardsList() {
 				spacing={3}
 			>
 				{data ? (
-					data?.map((item: any) => (
+					data.map((item: any) => (
 						<CardsItem key={item.Id} {...item}></CardsItem>
 					))
 				) : (
@@ -44,7 +47,7 @@ function CardsList() {
 					</Typography>
 				)}
 			</Grid>
-		</>
+		</div>
 	);
 }
 

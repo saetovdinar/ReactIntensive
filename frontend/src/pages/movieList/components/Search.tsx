@@ -4,7 +4,7 @@ function Search(props) {
 	return (
 		<TextField
 			sx={{
-				marginTop: '5px',
+				marginTop: '105px',
 				'& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
 					borderColor: '#c9e9ff'
 				},
@@ -16,22 +16,22 @@ function Search(props) {
 						borderColor: '#c9e9ff'
 					},
 				'& .MuiOutlinedInput-input': {
-					color: 'black'
+					color: '#ffffff'
 				},
 				'&:hover .MuiOutlinedInput-input': {
-					color: 'black'
+					color: '#ffffff'
 				},
 				'& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-input': {
-					color: 'black'
+					color: '#ffffff'
 				},
 				'& .MuiInputLabel-outlined': {
-					color: 'black'
+					color: '#ffffff'
 				},
 				'&:hover .MuiInputLabel-outlined': {
-					color: 'black'
+					color: '#ffffff'
 				},
 				'& .MuiInputLabel-outlined.Mui-focused': {
-					color: 'black'
+					color: '#ffffff'
 				}
 			}}
 			id="outlined-basic"
