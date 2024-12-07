@@ -1,11 +1,26 @@
-import { createStore, combineReducers } from 'redux';
-import { userReduser } from '@app/redux/reducer/userReducer';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { userReducer , movieReducer} from '@app/redux/reducer';
+
+
 
 const rootReducer = combineReducers({
-	users: userReduser
+	users: userReducer,
+	movies: movieReducer,
 });
 
-export const store = createStore(rootReducer);
+const getMovies = (store) => (dispatch) => (action) => {
+	console.log(action)
+	
+	dispatch(action)
+	
+	
+	
+}
+
+const middlewareCalled = applyMiddleware(getMovies)
+
+export const store = createStore(rootReducer,{}, middlewareCalled)
+
 
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;

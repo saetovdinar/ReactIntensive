@@ -2,25 +2,26 @@ import { Grid, Typography } from '@mui/material';
 import CardsItem from './components/MovieItem';
 import { useEffect, useState } from 'react';
 import { searchMoviesByTitle } from '@shared/api/server/server';
-import Film from '@pages/movie';
+import {addMovies, searchChange} from '@app/redux/actions/actionsCreators'
+import { useSelector, useDispatch } from 'react-redux';
+import {RootState} from '@app/redux/store'
 import Search from './components/Search';
 
 const DEFAULT_SEARCH = 'terminator';
 
 function CardsList() {
-	const [data, setData] = useState([]);
-	const [search, setSearch] = useState('');
-
+	const dispatch = useDispatch()
+	const search = useSelector((state: RootState) => state.movies.search)
+	const movies = useSelector((state: RootState) => state.movies.movies)
+	
 	useEffect(() => {
 		searchMoviesByTitle(search || DEFAULT_SEARCH).then((response) => {
-			console.log(response.data.Search);
-			setData(response.data.Search);
+			dispatch(addMovies(response.data.Search))
 		});
 	}, [search]);
-
 	return (
 		<>
-			<Search value={search} onChange={(e) => setSearch(e.target.value)} />
+			<Search value={search} onChange={(e) => dispatch(searchChange(e.target.value))} />
 			<Grid
 				sx={{
 					marginTop: '1px'
@@ -28,8 +29,8 @@ function CardsList() {
 				container
 				spacing={3}
 			>
-				{data ? (
-					data?.map((item: any) => (
+				{movies ? (
+					movies?.map((item: any) => (
 						<CardsItem key={item.Id} {...item}></CardsItem>
 					))
 				) : (

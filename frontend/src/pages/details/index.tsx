@@ -19,7 +19,6 @@ function Movie() {
 	useEffect(() => {
 		searchMoviesById(`${id}`).then((response) => {
 			setDescription(response.data);
-			console.log(response.data);
 		});
 	}, []);
 	return (

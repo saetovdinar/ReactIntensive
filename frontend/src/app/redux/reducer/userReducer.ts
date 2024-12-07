@@ -12,7 +12,10 @@ const initialState: initStateUser = {
 	message: null
 };
 
-export function userReduser(state = initialState, action: AddUserAction): any {
+export default function userReduser(
+	state = initialState,
+	action: AddUserAction
+): initStateUser {
 	switch (action.type) {
 		case REG_USER:
 			const { login, password } = action.payload;
@@ -32,6 +35,9 @@ export function userReduser(state = initialState, action: AddUserAction): any {
 				message: 'user added'
 			};
 		default:
-			return state;
+			return {
+				...state
+
+			};
 	}
 }

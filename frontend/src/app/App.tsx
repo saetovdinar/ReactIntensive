@@ -4,7 +4,7 @@ import CardsList from '@pages/movieList';
 import Signin from '@pages/authorization/Signin';
 import Signup from '@pages/authorization/Signup';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Movie from '@pages/movie';
+import Movie from '@pages/details';
 
 function App() {
 	return (
@@ -21,8 +21,6 @@ function App() {
 					</Routes>
 				</BrowserRouter>
 			</>
-			{/* <CardsList></CardsList>
-			<Signup></Signup> */}
 		</div>
 	);
 }
