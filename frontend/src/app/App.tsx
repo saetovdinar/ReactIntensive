@@ -6,6 +6,7 @@ import Signup from '@pages/authorization/Signup';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Movie from '@pages/movie';
 import AppBar from '@pages/movieList/components/AppBar';
+import { MainLayout } from './layouts/MainLayout';
 
 function App() {
 	return (
@@ -13,11 +14,14 @@ function App() {
 			<>
 				<BrowserRouter>
 					<Routes>
-						<Route path="signin" element={<Signin />} />
-						<Route path="signup" element={<Signup />} />
-						{/* <Route element={<PrivateRoute />}> */}
-						<Route path="/:id" element={<Movie />} />
-						<Route path="/" element={<CardsList />} />
+						<Route path="/" element={<MainLayout />}>
+							<Route path="signin" element={<Signin />} />
+							<Route path="signup" element={<Signup />} />
+							{/* <Route element={<PrivateRoute />}> */}
+							<Route path="/:id" element={<Movie />} />
+							<Route path="/" element={<CardsList />} />
+						</Route>
+
 						{/* </Route> */}
 					</Routes>
 				</BrowserRouter>
