@@ -1,12 +1,22 @@
 import { AppProvider } from '@toolpad/core/AppProvider';
 import { SignInPage, type AuthProvider } from '@toolpad/core/SignInPage';
 import { useDispatch, useSelector } from 'react-redux';
-import { RootState, AppDispatch } from '@app/redux/store';
+import { AppDispatch } from '@app/redux/selectors';
 import { registerUser } from '@app/redux/actions/actionsCreators';
-
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import {selectLogged, selectRegistered} from '@app/redux/selectors'
 const providers = [{ id: 'credentials', name: 'Email and Password' }];
 
 export default function Signup() {
+	const navigate = useNavigate();
+	const logged = useSelector(selectLogged)
+	useEffect(() => {
+		if(logged) {
+			navigate('/')
+		}
+		
+	}, [logged])
 	const dispatch: AppDispatch = useDispatch();
 	const signIn: (provider: AuthProvider, formData: FormData) => void = async (
 		provider,
@@ -18,11 +28,12 @@ export default function Signup() {
 				password: ` ${formData.get('password')}`
 			})
 		);
+		
 	};
-	const users = useSelector((state: RootState) => state.users.users);
+
 	return (
 		<AppProvider>
-			<SignInPage signIn={signIn} providers={providers}></SignInPage>
+			<SignInPage signIn={signIn} providers={providers}></SignInPage>;
 		</AppProvider>
 	);
 }

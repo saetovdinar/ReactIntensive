@@ -1,28 +1,54 @@
-import { REG_USER, ADD_MOVIES, INPUT_SEARCH } from './actionsType';
+import {
+	REG_USER,
+	ADD_MOVIES,
+	INPUT_SEARCH,
+	SIGN_OUT,
+	SIGNIN_USER
+} from './actionsType';
 import { userPass, AddUserAction, movieProps } from '@app/redux/store/types';
 
 //auth
-export function registerUser(user: userPass): AddUserAction {
+function registerUser(user: userPass): AddUserAction {
 	return {
 		type: REG_USER,
 		payload: user
 	};
 }
+function signinUser(user: userPass): AddUserAction {
+	return {
+		type: SIGNIN_USER,
+		payload: user
+	};
+}
 
+function signOutUser(): any {
+	return {
+		type: SIGN_OUT
+	};
+}
 //movies
 
-export function addMovies(movies: movieProps[]): any {
+function addMovies(movies: movieProps[]): any {
 	return {
 		type: ADD_MOVIES,
 		payload: movies
 	};
 }
 
-//search 
+//search
 
-export function searchChange(value: string): any {
+function searchChange(value: string): any {
 	return {
 		type: INPUT_SEARCH,
 		payload: value
 	};
 }
+
+
+export {
+	signinUser,
+	searchChange,
+	signOutUser,
+	addMovies,
+	registerUser,
+};

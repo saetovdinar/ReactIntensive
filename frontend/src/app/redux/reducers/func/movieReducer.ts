@@ -21,7 +21,7 @@ export default function movieReducer(
 			return {
 				...state,
 				search: action.payload
-			}
+			};
 		default:
 			return {
 				...state

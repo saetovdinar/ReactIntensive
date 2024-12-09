@@ -1,0 +1,44 @@
+header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	background-color: #c9e9ff;
+	padding: 15px 15px;
+	position: fixed;
+	top: 0;
+	z-index: 100;
+	width: 100%;
+}
+
+.wrapLogo {
+	display: flex;
+	align-items: center;
+}
+
+header a {
+	color: #212121;
+	padding: 12px;
+	text-decoration: none;
+	font-size: 18px;
+	border-radius: 4px;
+}
+
+header a.logo {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+header a:hover {
+	background-color: rgba(25, 118, 210, 0.04);
+	color: #212121;
+}
+
+nav {
+	display: flex;
+	align-items: center;
+}
+
+.title {
+	font-size: 28px;
+}

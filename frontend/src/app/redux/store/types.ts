@@ -1,26 +1,40 @@
-export interface userPass {
+interface userPass {
 	login: string;
 	password: string;
+
 }
 
-export interface AddUserAction {
+interface AddUserAction {
 	type: string;
 	payload: userPass;
 }
 
-export interface initStateUser {
+interface initStateUser {
 	users: userPass[];
 	message: null | string;
+	logged: boolean;
+	registered: boolean
+
 }
 
-export interface movieProps {
+interface movieProps {
 	Poster: string;
 	Title: string;
 	Type: string;
 	Year: string;
 	imdbID: string;
 }
-export interface initStateMovie {
+interface initStateMovie {
 	movies: movieProps[];
 	search: string;
 }
+
+
+
+export type {
+	initStateMovie,
+	movieProps,
+	initStateUser,
+	userPass,
+	AddUserAction
+};
